@@ -49,18 +49,17 @@ try {
     modelSrc: LLAMA_3_2_1B_INST_Q4_0,
     modelConfig: { device: 'cpu', ctx_size: 2048 }
   })
-  const list = hits.map((h, i) => `${i + 1}. ${h.content}`).join('\n')
   const run = completion({
     modelId: llmId,
     history: [
       {
         role: 'system',
         content:
-          'You help a developer find a shell command from their own history. ' +
-          'Use only the commands listed. Reply in at most two short sentences: ' +
-          'copy the best command exactly as written, never change any file name, then say what it does.'
+          'You explain shell commands in plain English. Reply with exactly one short sentence saying what the command does. ' +
+          'Never write, repeat or modify a command. ' +
+          'Never mention paths or file names that are not in the command.'
       },
-      { role: 'user', content: `Question: ${question}\n\nCommands from my history:\n${list}` }
+      { role: 'user', content: `What does this command do? ${hits[0].content}` }
     ],
     stream: true,
     generationParams: { temp: 0, predict: 120 }
