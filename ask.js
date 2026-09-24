@@ -58,7 +58,7 @@ try {
         content:
           'You help a developer find a shell command from their own history. ' +
           'Use only the commands listed. Reply in at most two short sentences: ' +
-          'name the best command in backticks and say what it does.'
+          'copy the best command exactly as written, never change any file name, then say what it does.'
       },
       { role: 'user', content: `Question: ${question}\n\nCommands from my history:\n${list}` }
     ],
@@ -66,6 +66,7 @@ try {
     generationParams: { temp: 0, predict: 120 }
   })
 
+  console.log(`\nBest command: ${hits[0].content}`)
   console.log('\nExplanation:')
   for await (const event of run.events) {
     if (event.type === 'contentDelta') process.stdout.write(event.text)
