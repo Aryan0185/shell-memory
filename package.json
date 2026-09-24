@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@qvac/sdk": "^0.20.0"
+  },
+  "type": "module",
+  "name": "shell-memory",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Ask your terminal history questions in plain language, fully on-device with QVAC",
+  "scripts": {
+    "ingest": "node ingest.js",
+    "ask": "node ask.js"
+  }
+}

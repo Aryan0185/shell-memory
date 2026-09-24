@@ -1,0 +1,40 @@
+git status
+git checkout -b feature/login
+git log --oneline -n 10
+git stash pop
+git commit --amend -m "fix typo"
+git reset --hard HEAD~1
+git push origin main
+docker ps -a
+docker compose up -d --build
+docker system prune -af
+docker logs -f web
+npm install express
+npm run build
+npm audit fix
+node index.js
+lsof -ti:3000 | xargs kill -9
+sudo systemctl restart nginx
+sudo journalctl -u nginx --since "1 hour ago"
+ssh -i ~/.ssh/id_ed25519 ubuntu@10.0.0.5
+scp backup.tar.gz ubuntu@10.0.0.5:/home/ubuntu/
+tar -czf backup.tar.gz ~/Documents
+tar -xzf archive.tar.gz -C /tmp
+find . -name "*.log" -mtime +7 -delete
+du -sh * | sort -h
+df -h
+free -h
+ps aux | grep node
+grep -rn "TODO" src/
+chmod +x deploy.sh
+python3 -m venv .venv
+pip install -r requirements.txt
+sudo apt update && sudo apt upgrade -y
+curl -I https://example.com
+ffmpeg -i input.mp4 -ar 16000 -ac 1 out.wav
+rsync -avz ./dist/ ubuntu@10.0.0.5:/var/www/app/
+ip a
+ping -c 4 8.8.8.8
+sudo ufw allow 22/tcp
+crontab -e
+watch -n 2 free -h
